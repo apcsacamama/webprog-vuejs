@@ -57,17 +57,16 @@
                 <p>My dream is to become a successful software developer like my sister and be able to travel around the world once I'm financially stable.</p>
             </div>
             <button class="button" onclick="redirectToSocials()">My Socials</button>
+            <div id="app">
+                {{ message }} <br>
+                {{'Random number: ' + Math.ceil(Math.random()*6) }}
+              </div>
             <script 
         location.reload();
         src="js/myScript.js">
         </script>
         </section>
 
-        <div id="app">
-            {{ message }} <br>
-            {{'Random number: ' + Math.ceil(Math.random()*6) }}
-          </div>
-          
         <aside class="sidebar">
             <h2>Picture Gallery</h2>
             <p>Here are some pictures that represent me:</p>

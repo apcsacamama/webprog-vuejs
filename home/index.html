@@ -62,6 +62,12 @@
         src="js/myScript.js">
         </script>
         </section>
+
+        <div id="app">
+            {{ message }} <br>
+            {{'Random number: ' + Math.ceil(Math.random()*6) }}
+          </div>
+          
         <aside class="sidebar">
             <h2>Picture Gallery</h2>
             <p>Here are some pictures that represent me:</p>
@@ -71,11 +77,6 @@
             <img src="https://i.pinimg.com/736x/06/ad/da/06adda610b5c8af46f61afa7779760a0.jpg" alt="Placeholder Image 4" width="150">
         </aside>
     </main>
-</div>
-
-<div id="app">
-  {{ message }} <br>
-  {{'Random number: ' + Math.ceil(Math.random()*6) }}
 </div>
  
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

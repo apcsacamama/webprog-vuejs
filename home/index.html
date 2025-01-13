@@ -1,144 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My first Vue page</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/bind.css?version=0.1">
-<link rel="stylesheet" href="css/images.css?version=0.1">
-<link rel="stylesheet" href="css/shopping.css?version=0.1">   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal profile webpage of Shanteiy A. Camama.">
+    <meta name="keywords" content="Personal Profile, IT Student, Portfolio">
+    <meta name="author" content="Shanteiy A. Camama">
+    <title>My Personal Profile</title>
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-        <h1>My Personal Profile Webpage</h1>
-    </header>
-    <main class="main">
-        
-        <section class="main-content">
-            
-            <div class="about">
-                <h2>About Me</h2>
-                <p>Hello! My name is Shanteiy A. Camama, but you can also call me Shan. I am currently in 2nd year of college, and here are some of the things about me.</p>
-            </div>
-            
-            <div class="education">
-                <h2>Education / Achievements</h2>
-                <ul>
-                    <li>2022-2023: 1st Place in MathemArtists Art Making Competition, Grade 12 with honors</li>
-                    <li>2023-2024: 1st-year Honor student</li>
-                </ul>
-            </div>
-            
-            <div class="course">
-                <h2>Course</h2>
-                <p>Bachelor of Science in Computer Science Specializing in Software Systems.</p>
-            </div>
-            
-            <div class="it-experience">
-                <h2>IT Experience</h2>
-                <p>I have worked on various IT projects, including:</p>
-                <ul>
-                    <li>Front-end and Back-end programming</li>
-                    <li>Database management</li>
-                </ul>
-            </div>
-            
-            <div class="hobbies">
-                <h2>Hobbies & Interests</h2>
-                <p>Here are some of my hobbies:</p>
-                <ul>
-                    <li>Reading manhwas and manga</li>
-                    <li>Playing instruments like the ukulele and keyboard</li>
-                    <li>Volleyball</li>
-                    <li>Traveling</li>
-                </ul>
-            </div>
-            
-            <div class="goals">
-                <h2>Goals in Life / Dream</h2>
-                <p>My dream is to become a successful software developer like my sister and be able to travel around the world once I'm financially stable.</p>
-            </div>
-            <div id="app">
-                {{ message }} <br>
-                {{'Random number: ' + Math.ceil(Math.random()*6) }}
-                <div v-bind:class="vueClass">This element is bound to the "pinkBG" class.
-                </div>
-              </div>
-          <div id="app2">
-            <div>
-              <figure v-for="x in manyFoods">
-              <img v-bind:src="x.url">
-              <figcaption>{{ x.name }}</figcaption>
-                </figure>
-            </div>
-          </div>
-          <div id="app3">
-            <form v-on:submit.prevent="addItem">
-              <p>
-                What do you need? <br>
-                <input type="text" required placeholder="item name.." v-model="itemName">
-              </p>
-              <p>
-                How many? <br>
-                <input type="number" placeholder="number of items.." v-model="itemNumber">
-              </p>
-              <p>
-                Important?
-              <label>
-                <input type="checkbox" v-model="itemImportant">
-                {{ itemImportant }}
-              </label>
-              </p>
-              <button type="submit">Add item</button>
-              </form>
-              <br>
-              <hr>
- 
-              <div>
-              <p><strong>Shopping list:</strong></p>
-                <ul id="ulToFind">
-          <li 
-            v-for="item in shoppingList" 
-            v-bind:class="{ impClass: item.important }"
-            v-on:click="item.found=!item.found"
-            v-show="!item.found">
-          {{ item.name }}, {{ item.number}}
-          </li>
-            </ul>
-            <ul id="ulFound">
-          <li 
-        v-for="item in shoppingList" 
-        v-bind:class="{ impClass: item.important }"
-        v-on:click="item.found=!item.found"
-        v-show="item.found">
-          {{ item.name }}, {{ item.number}}
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div id="app">
+        <div class="container">
+            <header class="header">
+                <h1>My Personal Profile Webpage</h1>
+            </header>
 
-            <button class="button" onclick="redirectToSocials()">My Socials</button>
-            <script 
-        location.reload();
-        src="js/myScript.js">
-        </script>
-        </section>
-        
-        <aside class="sidebar">
-            <h2>Picture Gallery</h2>
-            <p>Here are some pictures that represent me:</p>
-            <img src="https://i.pinimg.com/474x/ee/2a/71/ee2a7149341c2b23ae2e9c7358ec247d.jpg" alt="Placeholder Image 1" width="150">
-            <img src="https://i.pinimg.com/736x/ac/e3/16/ace3163f3edb4b0c311ea0e56bb9d5d1.jpg" alt="Placeholder Image 2" width="150">
-            <img src="https://i.pinimg.com/736x/bb/e9/85/bbe985b0966c8cd51df295e6389e080c.jpg" alt="Placeholder Image 3" width="150">
-            <img src="https://i.pinimg.com/736x/06/ad/da/06adda610b5c8af46f61afa7779760a0.jpg" alt="Placeholder Image 4" width="150">
-        </aside>
-    </main>
-</div>
- 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="js/vue.js"></script>
-<script src="js/images.js"></script>
-<script src="js/shopping.js"></script>
- 
+            <nav class="nav">
+                <a href="#about">About Me</a>
+                <a href="#education">Education</a>
+                <a href="#course">Course</a>
+                <a href="#experience">IT Experience</a>
+                <a href="#hobbies">Hobbies</a>
+                <a href="#goals">Goals</a>
+                <a href="#https://frankie-socmeds.carrd.co/" onclick="redirectToSocials()">My Socials</a>
+            </nav>
+
+            <main class="main">
+                <section class="main-content">
+                    <div id="about" class="about">
+                        <h2>About Me</h2>
+                        <p>Hello! My name is Shanteiy A. Camama, but you can also call me Shan. I am currently in my 2nd year of college, and here are some of the things about me.</p>
+                    </div>
+
+                    <div id="education" class="education">
+                        <h2>Education / Achievements</h2>
+                        <ul>
+                            <li>2022-2023: 1st Place in MathemArtists Art Making Competition, Grade 12 with honors</li>
+                            <li>2023-2024: 1st-year Honor student</li>
+                        </ul>
+                    </div>
+
+                    <div id="course" class="course">
+                        <h2>Course</h2>
+                        <p>Bachelor of Science in Computer Science Specializing in Software Systems.</p>
+                    </div>
+
+                    <div id="experience" class="it-experience">
+                        <h2>IT Experience</h2>
+                        <p>I have worked on various IT projects, including:</p>
+                        <ul>
+                            <li>Front-end and Back-end programming</li>
+                            <li>Database management</li>
+                        </ul>
+                    </div>
+
+                    <div id="hobbies" class="hobbies">
+                        <h2>Hobbies & Interests</h2>
+                        <ul>
+                            <li>Reading manhwas and manga</li>
+                            <li>Playing instruments like the ukulele and keyboard</li>
+                            <li>Volleyball</li>
+                            <li>Traveling</li>
+                        </ul>
+                    </div>
+
+                    <div id="goals" class="goals">
+                        <h2>Goals in Life / Dream</h2>
+                        <p>My dream is to become a successful software developer like my sister and travel around the world once I'm financially stable.</p>
+                    </div>
+                  
+                    <div id="carousel" class="carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-images">
+                                <img :src="images[currentIndex]" alt="Carousel Image" class="carousel-image">
+                            </div>
+                            <button class="prev" @click="moveSlide('prev')">&#10094;</button>
+                            <button class="next" @click="moveSlide('next')">&#10095;</button>
+                        </div>
+                    </div>
+
+                    <div id="comments-section" class="comments-section">
+                        <h2>Leave a Comment</h2>
+                        <form @submit.prevent="addComment">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" v-model="newComment.name" required>
+
+                            <label for="message">Message:</label>
+                            <textarea id="message" v-model="newComment.message" required></textarea>
+
+                            <button type="submit" class="button">Submit</button>
+                        </form>
+
+                        <div class="comments-list">
+                            <h2>Comments</h2>
+                            <div v-if="comments.length === 0">No comments yet. Be the first to comment!</div>
+                            <div v-for="(comment, index) in comments" :key="index" class="comment">
+                                <h3>{{ comment.name }}</h3>
+                                <p>{{ comment.message }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="sidebar">
+                    <h2>Picture Gallery</h2>
+                    <p>Here are some pictures that represent me:</p>
+                    <div id="gallery">
+                        <div v-for="(image, index) in images" :key="index" class="gallery-item">
+                            <img :src="image" alt="Gallery Image" />
+                        </div>
+                    </div>
+                </aside>
+            </main>
+
+            <footer class="footer">
+                <p>© 2025 Shanteiy A. Camama | <a href="#credits">Credits</a></p>
+            </footer>
+
+            <section id="credits" class="credits">
+                <h2>Credits</h2>
+                <p>Image sources: Pinterest. </p>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/myScript.js"></script>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    newComment: {
+                        name: '',
+                        message: ''
+                    },
+                    comments: [],
+                    images: [
+                        "https://i.pinimg.com/474x/ee/2a/71/ee2a7149341c2b23ae2e9c7358ec247d.jpg",
+                        "https://i.pinimg.com/736x/ac/e3/16/ace3163f3edb4b0c311ea0e56bb9d5d1.jpg",
+                        "https://i.pinimg.com/736x/bb/e9/85/bbe985b0966c8cd51df295e6389e080c.jpg",
+                        "https://i.pinimg.com/736x/06/ad/da/06adda610b5c8af46f61afa7779760a0.jpg"
+                    ],
+                    currentIndex: 0
+                };
+            },
+            methods: {
+                addComment() {
+                    if (this.newComment.name && this.newComment.message) {
+                        this.comments.push({
+                            name: this.newComment.name,
+                            message: this.newComment.message
+                        });
+                        this.newComment.name = '';
+                        this.newComment.message = '';
+                    }
+                },
+                moveSlide(direction) {
+                    if (direction === 'next') {
+                        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                    } else {
+                        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
 </body>
 </html>

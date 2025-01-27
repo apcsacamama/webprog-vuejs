@@ -42,6 +42,7 @@
     <img src="https://i.pinimg.com/736x/bb/e9/85/bbe985b0966c8cd51df295e6389e080c.jpg" alt="Placeholder Image 3" width="150">
     <img src="https://i.pinimg.com/736x/06/ad/da/06adda610b5c8af46f61afa7779760a0.jpg" alt="Placeholder Image 4" width="150">
     <footer>Asia Pacific College</footer>
+    </main>
     </div>
 </template>
 
